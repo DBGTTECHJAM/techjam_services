@@ -1,0 +1,84 @@
+package org.db.techjam.beans;
+
+import java.io.IOException;
+import java.io.Serializable;
+
+public class BlueButton implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4688584368987681540L;
+
+	private Individual individual;
+
+	private Demographics demographics;
+
+	private ContactInfo contactInfo;
+	
+	private VAWellnessReminder vaWellnessReminder;
+	
+	private VAAppointments vaAppointments;
+
+	public BlueButton(Individual individual) throws IOException {
+		super();
+		this.individual = individual;
+		this.demographics = new Demographics(individual);
+		this.vaWellnessReminder = new VAWellnessReminder(individual);
+		this.vaAppointments = new VAAppointments(individual);
+	}
+
+	public BlueButton() {
+		// TODO Auto-generated constructor stub
+	}
+
+<<<<<<< .mine
+=======
+	private Individual individual;
+
+	private Demographics demographics;
+
+>>>>>>> .r51
+	public Individual getIndividual() {
+		return individual;
+	}
+
+	public void setIndividual(Individual individual) {
+		this.individual = individual;
+	}
+
+	public Demographics getDemographics() {
+		return demographics;
+	}
+
+	public void setDemographics(Demographics demographics) {
+		this.demographics = demographics;
+	}
+
+	public ContactInfo getContactInfo() {
+		return contactInfo;
+	}
+
+	public void setContactInfo(ContactInfo contactInfo) {
+		this.contactInfo = contactInfo;
+	}
+
+	public VAWellnessReminder getVaWellnessReminder() {
+		return vaWellnessReminder;
+	}
+
+	public void setVaWellnessReminder(VAWellnessReminder vaWellnessReminder) {
+		this.vaWellnessReminder = vaWellnessReminder;
+	}
+
+	public VAAppointments getVaAppointments() {
+		return vaAppointments;
+	}
+
+	public void setVaAppointments(VAAppointments vaAppointments) {
+		this.vaAppointments = vaAppointments;
+	}
+	
+	
+
+}

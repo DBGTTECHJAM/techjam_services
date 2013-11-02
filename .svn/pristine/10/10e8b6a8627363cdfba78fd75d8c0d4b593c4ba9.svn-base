@@ -1,0 +1,54 @@
+package org.db.techjam.resources;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+
+import org.db.techjam.beans.BlueButton;
+import org.db.techjam.beans.Individual;
+import org.db.techjam.services.BlueButtonService;
+import org.osgi.framework.ServiceException;
+
+@Path("/blueButton")
+public class BlueButtonResource {
+
+	@Context
+	private ServletConfig config;
+
+	private BlueButtonService blueButtonService;
+
+	public ServletConfig getConfig() {
+		return config;
+	}
+
+	public void setConfig(ServletConfig a_config) {
+		this.config = a_config;
+	}
+
+	@POST
+	@Consumes({ MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_JSON })
+	public BlueButton getBlueButton(@Context final HttpServletRequest request,
+			@Context final HttpServletResponse response,
+			final Individual individual) throws ServiceException {
+		System.out.println("getBlueButton");
+
+		return this.getBlueButtonService().retrieve(individual, null);
+	}
+
+	public BlueButtonService getBlueButtonService() {
+		return blueButtonService;
+	}
+
+	public void setBlueButtonService(BlueButtonService blueButtonService) {
+		this.blueButtonService = blueButtonService;
+	}
+
+}
